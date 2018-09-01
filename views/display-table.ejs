@@ -1,0 +1,33 @@
+<%- include('header'); -%>
+
+
+<% if(users.length>0) { %>
+
+<table border="1">
+        <tr>
+                        <th>Index</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                 <th>Action</th>
+        </tr>
+        <% for(var i=0; i<users.length;i++) { %>
+                <tr>
+                  <td><%= i %></td>
+                  <td><%= users[i].user_name %></td>
+                  <td><%= users[i].user_email %></td>
+                  <td><%= users[i].user_mobile %></td>
+                  <td>
+                          <a href='/edit/<%= users[i]._id %>'>Edit</a> | 
+                          <a href='/delete/<%= users[i]._id %>'>Delete</a> |
+                          <a href='/show/<%= users[i]._id %>'>Show</a>
+                
+                </td>
+                </tr>
+              <% } %>
+        
+</table>
+
+<% } else { %>
+        No Record Found
+      <% } %>
